@@ -69,6 +69,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: "prueba-tecnica-socio"
+          app-name: "hf-front-diego-arciniegas-dev"
           slot-name: "Production"
           package: release.zip
