@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { LanguageSelect } from 'components/LanguageSelect';
 import { useAuth } from 'hooks/useAuth';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +7,14 @@ import { Outlet } from 'react-router-dom';
 export function Navbar() {
   const { t } = useTranslation(['navbar']);
   const { token } = useAuth();
+  axios.post('https://is-diego-api-dev.azurewebsites.net/api/v1/stores/nearest', {
+    latitude: 0,
+    longitude: 0,
+  }, {
+    headers: {
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpZWdvMUBnbWFpbC5jb20iLCJpZCI6Ijc5ZmZjNzZkLWQxMDAtNGQ3ZS04NzVjLTU4NmFkZjliMDdkMCIsIm5hbWUiOiJkaWVnbyIsImlhdCI6MTcxNzE2Mzk5MiwiZXhwIjoxNzE5NzU1OTkyfQ.hPlIFgWSc8vJcD6BqbbuMxcp80WN1EnFfPbQGoYnDoM',
+    },
+  });
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50 sticky bg-primary">
